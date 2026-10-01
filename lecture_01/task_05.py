@@ -1,4 +1,4 @@
-class StudentBefore:
+class Student:
 
     def __init__(self, name, score):
         self.name = name
@@ -11,7 +11,7 @@ class StudentBefore:
         return "Незачёт"
 
 
-class GrantStudentBefore(StudentBefore):
+class GrantStudent(Student):
 
     def get_result(self):
         if self.score >= 70:
@@ -19,24 +19,7 @@ class GrantStudentBefore(StudentBefore):
 
         return "Грант не сохранён"
 
-
-class StudentAfter:
-
-    def __init__(self, name, score):
-        self.name = name
-        self.score = score
-
-    def get_result(self):
-        if self.score > 50:
-            return "Зачёт"
-
-        return "Незачёт"
-
-class GrantStudentAfter(StudentAfter):
-    pass
-
-
-print("ПРОВЕРКА ОБЫЧНЫХ СТУДЕНТОВ")
+print("\nПОВТОРНАЯ ПРОВЕРКА ОБЫЧНЫХ СТУДЕНТОВ")
 print("-" * 80)
 
 student_scores = [49, 50, 51]
@@ -45,18 +28,19 @@ for score in student_scores:
 
     expected = "Зачёт" if score >= 50 else "Незачёт"
 
-    before = StudentBefore("Иван", score).get_result()
-    after = StudentAfter("Иван", score).get_result()
+    student = Student("Иван", score)
+    actual = student.get_result()
+
+    status = "Пройдена" if actual == expected else "Не пройдена"
 
     print(
         f"Баллы: {score} | "
         f"Ожидалось: {expected} | "
-        f"До: {before} | "
-        f"После: {after}"
+        f"Получено: {actual} | "
+        f"Статус: {status}"
     )
 
-
-print("\nПРОВЕРКА СТУДЕНТОВ НА ГРАНТЕ")
+print("\nПОВТОРНАЯ ПРОВЕРКА СТУДЕНТОВ НА ГРАНТЕ")
 print("-" * 80)
 
 grant_scores = [69, 70, 71]
@@ -69,12 +53,15 @@ for score in grant_scores:
         else "Грант не сохранён"
     )
 
-    before = GrantStudentBefore("Пётр", score).get_result()
-    after = GrantStudentAfter("Пётр", score).get_result()
+    student = GrantStudent("Пётр", score)
+    actual = student.get_result()
+
+    status = "Пройдена" if actual == expected else "Не пройдена"
 
     print(
         f"Баллы: {score} | "
         f"Ожидалось: {expected} | "
-        f"До: {before} | "
-        f"После: {after}"
+        f"Получено: {actual} | "
+        f"Статус: {status}"
     )
+
