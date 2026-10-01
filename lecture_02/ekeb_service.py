@@ -19,3 +19,17 @@ def exam_result(score):
         return "Зачёт"
 
     return "Незачёт"
+
+# Задание 3
+class Student:
+
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def has_passed(self):
+        return self.score > 50
+
+    def add_points(self, points):
+        self.score = self.score + points
+        return self.score
