@@ -15,3 +15,8 @@ if result == expected:
     print("Статус: Пройдена")
 else:
     print("Статус: Не пройдена")
+
+balance = 5000 - purchase_fixed(700, 2)
+
+print("\nСтоимость покупки:", purchase_fixed(700, 2))
+print("Остаток:", balance)
