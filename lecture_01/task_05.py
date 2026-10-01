@@ -65,3 +65,11 @@ for score in grant_scores:
         f"Статус: {status}"
     )
 
+print("\nПРОВЕРКА КОНСТРУКТОРА")
+print("-" * 80)
+
+student = GrantStudent("Алексей", 80)
+
+print("Имя:", student.name)
+print("Баллы:", student.score)
+print("Результат:", student.get_result())
