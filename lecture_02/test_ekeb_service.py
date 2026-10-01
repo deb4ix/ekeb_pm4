@@ -1,5 +1,5 @@
 import unittest
-from ekeb_service import print_cost
+from ekeb_service import print_cost, exam_result
 
 # Задание 1
 class TestPrintCost(unittest.TestCase):

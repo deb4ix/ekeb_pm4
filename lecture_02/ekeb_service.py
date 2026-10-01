@@ -15,7 +15,7 @@ def exam_result(score):
     if score < 0 or score > 100:
         raise ValueError("Недопустимый балл")
 
-    if score > 50:
+    if score >= 50:
         return "Зачёт"
 
     return "Незачёт"
