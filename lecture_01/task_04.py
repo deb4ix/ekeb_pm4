@@ -1,22 +1,15 @@
-def fine_before(days):
+def fine_fixed(days):
     if days < 0:
         return "Ошибка"
 
-    elif days <= 3:
-        return 0
-
-    else:
-        return (days - 3) * 100
-
-def fine_after(days):
     if days <= 3:
         return 0
 
-    return days * 100
+    return (days - 3) * 100
 
 days_list = [-1, 0, 3, 4, 7, 10]
 
-print("ПРОВЕРКА ДО И ПОСЛЕ РЕФАКТОРИНГА")
+print("\nПОВТОРНАЯ ПРОВЕРКА ПОСЛЕ ИСПРАВЛЕНИЯ")
 print("-" * 90)
 
 for days in days_list:
@@ -28,12 +21,13 @@ for days in days_list:
     else:
         expected = (days - 3) * 100
 
-    before = fine_before(days)
-    after = fine_after(days)
+    actual = fine_fixed(days)
+
+    status = "Пройдена" if actual == expected else "Не пройдена"
 
     print(
         f"Дни: {days} | "
-        f"Ожидаемый результат: {expected} | "
-        f"До: {before} | "
-        f"После: {after}"
+        f"Ожидалось: {expected} | "
+        f"Получено: {actual} | "
+        f"Статус: {status}"
     )
