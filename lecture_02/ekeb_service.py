@@ -48,3 +48,7 @@ class Student:
             return "Зачёт"
 
         return "Незачёт"
+
+# Задание 4
+class GrantStudent(Student):
+    pass

@@ -1,5 +1,5 @@
 import unittest
-from ekeb_service import print_cost, exam_result, Student
+from ekeb_service import print_cost, exam_result, Student, GrantStudent
 
 # Задание 1
 class TestPrintCost(unittest.TestCase):
@@ -73,6 +73,64 @@ class TestStudent(unittest.TestCase):
     def test_negative_points(self):
         with self.assertRaises(ValueError):
             self.student.add_points(-10)
+
+# Задание 4
+class TestGrantStudent(unittest.TestCase):
+
+    def test_is_student(self):
+        student = GrantStudent("Алия", 80)
+
+        self.assertIsInstance(student, Student)
+
+    def test_grant_69(self):
+        student = GrantStudent("Алия", 69)
+
+        self.assertEqual(
+            student.status(),
+            "Грант не сохранён"
+        )
+
+    def test_grant_70(self):
+        student = GrantStudent("Алия", 70)
+
+        self.assertEqual(
+            student.status(),
+            "Грант сохранён"
+        )
+
+    def test_grant_71(self):
+        student = GrantStudent("Алия", 71)
+
+        self.assertEqual(
+            student.status(),
+            "Грант сохранён"
+        )
+
+    def test_grant_status(self):
+        student = GrantStudent("Алия", 70)
+
+        self.assertEqual(
+            student.grant_status(),
+            "Грант сохранён"
+        )
+
+    def test_inherited_add_points(self):
+        student = GrantStudent("Алия", 65)
+
+        self.assertEqual(
+            student.add_points(5),
+            70
+        )
+
+    def test_grant_after_adding_points(self):
+        student = GrantStudent("Алия", 65)
+
+        student.add_points(5)
+
+        self.assertEqual(
+            student.grant_status(),
+            "Грант сохранён"
+        )
 
 if __name__ == "__main__":
     unittest.main()
