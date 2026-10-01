@@ -51,4 +51,12 @@ class Student:
 
 # Задание 4
 class GrantStudent(Student):
-    pass
+
+    def status(self):
+        if self.score >= 70:
+            return "Грант сохранён"
+
+        return "Грант не сохранён"
+
+    def grant_status(self):
+        return self.status()
