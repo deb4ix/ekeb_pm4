@@ -1,15 +1,17 @@
-def purchase_before(price, quantity):
+def purchase_fixed(price, quantity):
     return price * quantity
 
-def purchase_after(price, quantity):
-    print(price * quantity)
-
-
-print("ПРОВЕРКА ДО И ПОСЛЕ РЕФАКТОРИНГА")
+print("\nПОВТОРНАЯ ПРОВЕРКА ПОСЛЕ ИСПРАВЛЕНИЯ")
 print("-" * 60)
 
-old_result = purchase_before(700, 2)
-new_result = purchase_after(700, 2)
+result = purchase_fixed(700, 2)
 
-print("Старая версия вернула:", old_result)
-print("Новая версия вернула:", new_result)
+expected = 1400
+
+print("Ожидаемый результат:", expected)
+print("Полученный результат:", result)
+
+if result == expected:
+    print("Статус: Пройдена")
+else:
+    print("Статус: Не пройдена")
