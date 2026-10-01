@@ -28,8 +28,23 @@ class Student:
         self.score = score
 
     def has_passed(self):
-        return self.score > 50
+        return self.score >= 50
 
     def add_points(self, points):
+        if points < 0:
+            raise ValueError(
+                "Количество баллов не может быть отрицательным"
+            )
+
         self.score = self.score + points
+
+        if self.score > 100:
+            self.score = 100
+
         return self.score
+
+    def status(self):
+        if self.score >= 50:
+            return "Зачёт"
+
+        return "Незачёт"
