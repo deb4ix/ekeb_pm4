@@ -28,5 +28,10 @@ class TestCourse(unittest.TestCase):
         with self.assertRaises(ValueError):
             Course("Python", -5)
 
+    def test_available_places(self):
+        course = Course("Python", 20)
+
+        self.assertEqual(course.available_places(), 20)
+
 if __name__ == "__main__":
     unittest.main()
