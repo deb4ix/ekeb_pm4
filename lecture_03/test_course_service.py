@@ -16,6 +16,17 @@ class TestCourse(unittest.TestCase):
 
         self.assertEqual(course.enrolled, 0)
 
+    def test_empty_name_raises_error(self):
+        with self.assertRaises(ValueError):
+            Course("", 20)
+
+    def test_zero_capacity_raises_error(self):
+        with self.assertRaises(ValueError):
+            Course("Python", 0)
+
+    def test_negative_capacity_raises_error(self):
+        with self.assertRaises(ValueError):
+            Course("Python", -5)
 
 if __name__ == "__main__":
     unittest.main()
