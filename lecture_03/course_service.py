@@ -25,3 +25,7 @@ class Course:
             raise ValueError("Нет зарегистрированных студентов")
 
         self.enrolled -= 1
+
+    @property
+    def is_full(self):
+        return self.enrolled == self.capacity
