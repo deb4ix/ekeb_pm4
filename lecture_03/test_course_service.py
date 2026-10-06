@@ -70,5 +70,18 @@ class TestCourse(unittest.TestCase):
         with self.assertRaises(ValueError):
             course.cancel_enrollment()
 
+    def test_is_full(self):
+        course = Course("Python", 2)
+
+        self.assertFalse(course.is_full)
+
+        course.enroll()
+
+        self.assertFalse(course.is_full)
+
+        course.enroll()
+
+        self.assertTrue(course.is_full)
+
 if __name__ == "__main__":
     unittest.main()
