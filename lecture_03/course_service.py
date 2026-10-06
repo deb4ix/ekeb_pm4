@@ -19,3 +19,9 @@ class Course:
 
         self.enrolled += 1
         return self.available_places()
+
+    def cancel_enrollment(self):
+        if self.enrolled == 0:
+            raise ValueError("Нет зарегистрированных студентов")
+
+        self.enrolled -= 1
