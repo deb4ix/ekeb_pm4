@@ -41,5 +41,19 @@ class TestCourse(unittest.TestCase):
         self.assertEqual(course.enrolled, 1)
         self.assertEqual(remaining, 1)
 
+    def test_enroll_until_full(self):
+        course = Course("Python", 2)
+
+        self.assertEqual(course.enroll(), 1)
+        self.assertEqual(course.enroll(), 0)
+
+    def test_enroll_when_full_raises_error(self):
+        course = Course("Python", 1)
+
+        course.enroll()
+
+        with self.assertRaises(ValueError):
+            course.enroll()
+
 if __name__ == "__main__":
     unittest.main()
