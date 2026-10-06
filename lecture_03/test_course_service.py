@@ -33,5 +33,13 @@ class TestCourse(unittest.TestCase):
 
         self.assertEqual(course.available_places(), 20)
 
+    def test_enroll_one_student(self):
+        course = Course("Python", 2)
+
+        remaining = course.enroll()
+
+        self.assertEqual(course.enrolled, 1)
+        self.assertEqual(remaining, 1)
+
 if __name__ == "__main__":
     unittest.main()
