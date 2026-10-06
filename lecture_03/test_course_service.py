@@ -55,5 +55,20 @@ class TestCourse(unittest.TestCase):
         with self.assertRaises(ValueError):
             course.enroll()
 
+    def test_cancel_enrollment(self):
+        course = Course("Python", 2)
+
+        course.enroll()
+        course.cancel_enrollment()
+
+        self.assertEqual(course.enrolled, 0)
+        self.assertEqual(course.available_places(), 2)
+
+    def test_cancel_when_empty_raises_error(self):
+        course = Course("Python", 2)
+
+        with self.assertRaises(ValueError):
+            course.cancel_enrollment()
+
 if __name__ == "__main__":
     unittest.main()
