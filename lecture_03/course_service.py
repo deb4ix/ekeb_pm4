@@ -9,3 +9,6 @@ class Course:
         self.name = name
         self.capacity = capacity
         self.enrolled = 0
+
+    def available_places(self):
+        return self.capacity - self.enrolled
